@@ -1,0 +1,43 @@
+{
+  "name": "dsh-theme-elysia",
+  "version": "0.5.0-web.1",
+  "description": "乐土礼堂 · 白昼与夜樱 —— 给 DeepSeek Harness 的一身樱粉配色（web profile 适配版，自用）：乐土大厅实景打底、重绑 --dsw-* 底层色阶，首页「探索未至之境」换成粉色的「嗨♪爱愿妖精♥」，设置里另有一页可换底图、调透明度/放大/晃动强度/速度",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "elysia",
+    "light"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "license": "MIT"
+}

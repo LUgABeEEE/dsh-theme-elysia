@@ -1,0 +1,17 @@
+# ============================================================================
+# dsh-theme-elysia —— DSH bundle patch（web profile 适配版）
+# ============================================================================
+# 挂载声明：把本体插进 profile 的配置树。样式由宿主在 index 渲染时注入。
+#
+# 安装（web profile，本机）见 README.md：
+#   1) 包目录放到 ~/.dsh/plugins/dsh-theme-elysia
+#   2) ~/.dsh/profiles/web/package.json 的 dependencies 加
+#        "dsh-theme-elysia": "link:/data/agent/.dsh/plugins/dsh-theme-elysia"
+#   3) dsh.profile.bundles 数组末尾加 "dsh-theme-elysia"
+#   4) pnpm install；重启 dsh-web
+# 撤掉：从 dsh.profile.bundles 删掉这一项，重启即可回官方配色。
+# ============================================================================
+
+- insert:
+    - id: dsh-theme-elysia
+      name: dsh-theme-elysia
