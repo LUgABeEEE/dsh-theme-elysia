@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches: ["${{ github.event.repository.default_branch }}"]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Smoke tests (isolated HOME)
+        run: |
+          export HOME="$(mktemp -d)"
+          node tests/smoke.mjs
+          node tests/client-smoke.mjs
